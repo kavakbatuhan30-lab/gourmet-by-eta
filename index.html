@@ -1,0 +1,1296 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="description" content="Gourm-eT By Eta — Turkish Speciality Steakhouse à Bruxelles. Tomahawk, kebabs, pide, baklava." />
+<title>Gourm-eT By Eta · Turkish Speciality Food · Bruxelles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&display=swap" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22cursive%22 fill=%22%23c8362b%22>T</text></svg>" />
+<style>
+:root{
+  --bg:#0a0a0c;
+  --bg-1:#101016;
+  --bg-2:#16131c;
+  --ink:#f5ebdd;
+  --ink-soft:#bba98a;
+  --ink-mute:#7a6e58;
+  --gold:#c9a55b;
+  --gold-deep:#8a6e34;
+  --red:#c8362b;
+  --red-deep:#8a1f17;
+  --line:rgba(201,165,91,.18);
+  --line-strong:rgba(201,165,91,.36);
+  --ease:cubic-bezier(.7,.05,.2,1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:auto;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-weight:400;
+  font-size:18px;
+  line-height:1.55;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{max-width:100%;display:block}
+
+/* —— typography —— */
+.serif{font-family:"Fraunces", "Cormorant Garamond", serif}
+.script{font-family:"Allura", cursive;font-weight:400}
+.eyebrow{
+  font-family:"Fraunces", serif;
+  font-weight:500;
+  font-size:.72rem;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--gold);
+  font-variation-settings:"opsz" 12, "wght" 500, "SOFT" 30;
+}
+.eyebrow .dot{
+  display:inline-block;width:5px;height:5px;border-radius:50%;
+  background:var(--gold);vertical-align:middle;margin:0 .8em;opacity:.7;
+}
+
+h1,h2,h3,h4{font-family:"Fraunces", serif;font-weight:400;line-height:1.05;letter-spacing:-.01em}
+h2{
+  font-size:clamp(2.2rem, 5.5vw, 4.6rem);
+  font-variation-settings:"opsz" 144, "wght" 360, "SOFT" 70;
+}
+h3{
+  font-size:clamp(1.4rem, 2.6vw, 2rem);
+  font-variation-settings:"opsz" 96, "wght" 400, "SOFT" 60;
+}
+em, .italic{font-style:italic}
+
+/* —— atmosphere —— */
+.bg-marble{
+  position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(ellipse 80% 60% at 18% 0%, rgba(201,165,91,.10), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 100% 50%, rgba(200,54,43,.07), transparent 55%),
+    radial-gradient(ellipse 100% 80% at 50% 110%, rgba(60,40,20,.18), transparent 55%),
+    linear-gradient(180deg, #0a0a0c 0%, #0d0c11 40%, #0a090d 100%);
+}
+.bg-grain{
+  position:fixed;inset:-50%;z-index:-1;pointer-events:none;opacity:.08;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='280' height='280'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' stitchTiles='stitch' numOctaves='2'/><feColorMatrix values='0 0 0 0 1   0 0 0 0 1   0 0 0 0 1   0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+.veil{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(ellipse 60% 50% at 50% 30%, transparent 0%, rgba(0,0,0,.55) 100%);
+}
+
+/* —— cursor —— */
+.cursor-dot,.cursor-ring{
+  position:fixed;top:0;left:0;pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);will-change:transform;mix-blend-mode:difference;
+}
+.cursor-dot{width:6px;height:6px;background:var(--ink);border-radius:50%}
+.cursor-ring{
+  width:38px;height:38px;border:1px solid rgba(245,235,221,.5);border-radius:50%;
+  transition:width .25s var(--ease),height .25s var(--ease),border-color .25s var(--ease),background .25s var(--ease);
+}
+.cursor-ring.hover{width:64px;height:64px;border-color:var(--gold);background:rgba(201,165,91,.06)}
+@media(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
+
+/* —— header —— */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:80;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+  padding:22px clamp(20px, 4vw, 56px);
+  transition:background .4s var(--ease), backdrop-filter .4s var(--ease), padding .3s var(--ease), border-color .3s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.nav.is-scrolled{
+  background:rgba(10,10,12,.72);
+  backdrop-filter:blur(14px) saturate(120%);
+  -webkit-backdrop-filter:blur(14px) saturate(120%);
+  padding-top:14px;padding-bottom:14px;
+  border-bottom-color:var(--line);
+}
+.nav-logo{
+  font-family:"Allura", cursive;font-size:34px;line-height:1;
+  display:inline-flex;align-items:baseline;gap:.04em;
+  letter-spacing:0;
+}
+.nav-logo .t{color:var(--red);font-size:1.05em}
+.nav-links{
+  display:flex;gap:34px;align-items:center;justify-self:center;
+  font-family:"Fraunces", serif;font-size:.74rem;font-weight:500;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);
+  font-variation-settings:"opsz" 12, "wght" 500;
+}
+.nav-links a{position:relative;padding:8px 2px;transition:color .3s}
+.nav-links a::after{
+  content:"";position:absolute;left:50%;bottom:0;height:1px;width:0;background:var(--gold);
+  transition:width .35s var(--ease),left .35s var(--ease);
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{width:100%;left:0}
+.nav-right{display:flex;align-items:center;gap:24px;justify-self:end}
+.lang-switch{
+  display:inline-flex;align-items:center;gap:0;
+  font-family:"Fraunces", serif;font-size:.7rem;font-weight:500;letter-spacing:.24em;
+}
+.lang-switch button{
+  padding:6px 10px;color:var(--ink-mute);transition:color .25s;position:relative;
+}
+.lang-switch button.active{color:var(--gold)}
+.lang-switch .sep{color:var(--ink-mute);opacity:.5}
+.btn-reserve{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:11px 22px 12px;
+  border:1px solid var(--line-strong);
+  border-radius:999px;
+  font-family:"Fraunces", serif;font-size:.74rem;font-weight:500;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--ink);
+  background:linear-gradient(180deg, rgba(201,165,91,.06), rgba(201,165,91,0));
+  transition:border-color .3s, background .3s, color .3s, transform .3s var(--ease);
+}
+.btn-reserve:hover{border-color:var(--gold);background:linear-gradient(180deg, rgba(201,165,91,.16), rgba(201,165,91,.02));color:var(--ink)}
+.btn-reserve .dot{width:6px;height:6px;background:var(--red);border-radius:50%;box-shadow:0 0 12px var(--red)}
+@media (max-width:880px){
+  .nav-links{display:none}
+  .nav{grid-template-columns:1fr auto}
+  .nav-logo{font-size:28px}
+}
+
+/* —— hero —— */
+.hero{
+  min-height:100svh;position:relative;
+  display:grid;grid-template-rows:auto 1fr auto;
+  padding:120px clamp(20px, 4vw, 56px) 36px;
+  overflow:hidden;
+}
+.hero-meta-top{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  color:var(--ink-soft);
+}
+.hero-meta-top .left{display:flex;align-items:center;gap:14px}
+.hero-meta-top .num{
+  font-family:"Fraunces",serif;font-size:1.4rem;color:var(--gold);
+  font-variation-settings:"opsz" 96, "wght" 300, "SOFT" 80;
+}
+.hero-meta-top .right{text-align:right;font-size:.78rem}
+
+.hero-stage{
+  display:grid;place-items:center;position:relative;padding:24px 0;
+}
+.wordmark{
+  font-family:"Allura", cursive;
+  font-size:clamp(5.6rem, 22vw, 22rem);
+  line-height:.78;
+  letter-spacing:-.01em;
+  text-align:center;
+  color:var(--ink);
+  white-space:nowrap;
+  user-select:none;
+  filter:drop-shadow(0 30px 60px rgba(0,0,0,.5));
+}
+.wordmark .red{color:var(--red);font-size:1.06em;display:inline-block;transform:translateY(.02em)}
+.wordmark .char{display:inline-block;will-change:transform,opacity,filter}
+.wordmark-sub{
+  margin-top:14px;font-family:"Allura",cursive;font-size:clamp(1.4rem,2.6vw,2.1rem);
+  color:var(--ink-soft);text-align:center;letter-spacing:.04em;
+}
+
+.hero-decor{
+  position:absolute;inset:0;pointer-events:none;
+}
+.hero-decor .ring{
+  position:absolute;border:1px solid var(--line);border-radius:50%;
+  filter:blur(.2px);opacity:.6;
+}
+.hero-decor .ring.r1{width:78vmin;height:78vmin;top:50%;left:50%;transform:translate(-50%,-50%)}
+.hero-decor .ring.r2{width:120vmin;height:120vmin;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.25}
+.hero-decor .star{
+  position:absolute;width:14px;height:14px;color:var(--gold);opacity:.55;
+}
+.hero-decor .star.s1{top:18%;left:14%}
+.hero-decor .star.s2{top:74%;right:18%}
+.hero-decor .star.s3{top:32%;right:8%;width:9px;height:9px;opacity:.4}
+
+.hero-foot{
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:24px;
+}
+.hero-foot .left{font-family:"Fraunces",serif;font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--ink-soft)}
+.hero-foot .left span{display:block;margin-top:6px;color:var(--ink-mute);font-size:.66rem}
+.hero-foot .center{
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+}
+.scroll-cue{
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  font-family:"Fraunces",serif;font-size:.66rem;letter-spacing:.36em;text-transform:uppercase;color:var(--ink-mute);
+}
+.scroll-cue .line{
+  width:1px;height:48px;background:linear-gradient(180deg,var(--gold),transparent);
+  position:relative;overflow:hidden;
+}
+.scroll-cue .line::after{
+  content:"";position:absolute;top:-30%;left:0;width:100%;height:30%;
+  background:linear-gradient(180deg,transparent,var(--ink));
+  animation:cue 2.4s var(--ease) infinite;
+}
+@keyframes cue{0%{top:-30%}80%,100%{top:130%}}
+.hero-foot .right{
+  text-align:right;font-family:"Fraunces",serif;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-soft);
+}
+.hero-foot .right a{color:var(--ink);border-bottom:1px solid var(--line-strong);padding-bottom:2px;transition:border-color .3s}
+.hero-foot .right a:hover{border-color:var(--gold)}
+.hero-foot .right span{display:block;margin-top:8px;color:var(--ink-mute);font-size:.66rem}
+
+@media (max-width:760px){
+  .hero{padding-top:100px}
+  .hero-meta-top{flex-direction:column;gap:14px}
+  .hero-foot{grid-template-columns:1fr;text-align:center}
+  .hero-foot .left,.hero-foot .right{text-align:center}
+  .hero-decor .ring.r1{width:130vmin;height:130vmin}
+}
+
+/* —— sections —— */
+section{position:relative}
+.section-pad{padding:clamp(110px,16vw,200px) clamp(20px,4vw,56px)}
+.wrap{max-width:1320px;margin:0 auto;position:relative}
+
+.section-head{
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,60px);
+  align-items:end;margin-bottom:60px;border-bottom:1px solid var(--line);
+  padding-bottom:28px;
+}
+.section-num{
+  font-family:"Fraunces",serif;
+  font-size:clamp(4rem,9vw,8rem);
+  line-height:.85;
+  color:transparent;
+  -webkit-text-stroke:1px var(--gold-deep);
+  font-variation-settings:"opsz" 144, "wght" 300, "SOFT" 100;
+  letter-spacing:-.04em;
+}
+.section-num em{font-style:italic;color:var(--gold);-webkit-text-stroke:0;font-size:.55em;vertical-align:super;letter-spacing:.05em}
+.section-title{display:flex;flex-direction:column;gap:14px}
+.section-title .eyebrow{margin-bottom:6px}
+.section-title h2{max-width:18ch}
+.section-title .alt{font-family:"Allura",cursive;font-size:clamp(1.3rem,2.4vw,1.9rem);color:var(--gold);line-height:1}
+@media (max-width:680px){
+  .section-head{grid-template-columns:1fr}
+  .section-num{font-size:5rem}
+}
+
+/* —— manifesto —— */
+.manifesto-grid{
+  display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(40px,7vw,120px);align-items:start;
+}
+.manifesto-grid .lede{
+  font-family:"Fraunces",serif;font-size:clamp(1.4rem,2.4vw,2rem);
+  line-height:1.32;color:var(--ink);
+  font-variation-settings:"opsz" 96, "wght" 320, "SOFT" 60;
+}
+.manifesto-grid .lede em{color:var(--gold);font-style:italic}
+.manifesto-grid .body{
+  color:var(--ink-soft);font-size:1.05rem;line-height:1.7;
+}
+.manifesto-grid .body p + p{margin-top:1em}
+.manifesto-grid .body .sig{
+  display:block;margin-top:28px;font-family:"Allura",cursive;font-size:1.7rem;color:var(--gold);
+}
+.pillars{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  margin-top:90px;background:var(--line);
+}
+.pillars > div{
+  background:var(--bg);padding:32px 28px;display:flex;flex-direction:column;gap:14px;
+}
+.pillars .k{font-family:"Fraunces",serif;font-size:2.4rem;color:var(--gold);font-variation-settings:"opsz" 144, "wght" 320, "SOFT" 80;line-height:1}
+.pillars .l{font-family:"Fraunces",serif;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-soft)}
+.pillars .d{color:var(--ink-mute);font-size:.95rem}
+@media (max-width:880px){
+  .manifesto-grid{grid-template-columns:1fr}
+  .pillars{grid-template-columns:1fr;margin-top:50px}
+}
+
+/* —— marquee —— */
+.marquee{
+  position:relative;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  overflow:hidden;padding:26px 0;background:linear-gradient(180deg, rgba(201,165,91,.04), transparent);
+}
+.marquee-track{display:flex;width:max-content;animation:scroll 38s linear infinite;will-change:transform}
+.marquee-track > span{
+  display:inline-flex;align-items:center;gap:38px;padding-right:38px;
+  font-family:"Fraunces",serif;font-size:clamp(1.4rem,3vw,2.4rem);
+  letter-spacing:.18em;text-transform:uppercase;color:var(--ink);
+  font-variation-settings:"opsz" 144, "wght" 320, "SOFT" 60;
+  white-space:nowrap;
+}
+.marquee-track .script{font-family:"Allura",cursive;text-transform:none;letter-spacing:0;color:var(--gold);font-size:1.4em}
+.marquee-track .diamond{color:var(--red);font-size:.6em;transform:translateY(-2px)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* —— menu —— */
+.menu-section{padding-top:clamp(90px,12vw,140px)}
+.menu-nav{
+  position:sticky;top:74px;z-index:40;
+  margin:0 calc(-1 * clamp(20px,4vw,56px));padding:14px clamp(20px,4vw,56px);
+  background:rgba(10,10,12,.78);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  margin-bottom:80px;
+}
+.menu-nav .scroller{
+  display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
+  scroll-behavior:smooth;
+}
+.menu-nav .scroller::-webkit-scrollbar{display:none}
+.menu-nav button{
+  flex:0 0 auto;padding:9px 16px;border-radius:999px;
+  font-family:"Fraunces",serif;font-size:.7rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-mute);border:1px solid transparent;transition:color .25s, border-color .25s, background .25s;
+  white-space:nowrap;
+}
+.menu-nav button:hover{color:var(--ink)}
+.menu-nav button.active{color:var(--ink);border-color:var(--line-strong);background:rgba(201,165,91,.06)}
+
+.menu-cat{padding:50px 0 70px;border-top:1px solid var(--line)}
+.menu-cat:first-of-type{border-top:0;padding-top:0}
+.menu-cat-head{
+  display:grid;grid-template-columns:auto 1fr auto;gap:clamp(20px,4vw,60px);align-items:end;
+  margin-bottom:40px;
+}
+.menu-cat-head .cat-num{
+  font-family:"Fraunces",serif;font-size:1rem;color:var(--gold);letter-spacing:.3em;
+}
+.menu-cat-head .cat-title{display:flex;flex-direction:column;gap:6px}
+.menu-cat-head .cat-title .primary{
+  font-family:"Fraunces",serif;font-size:clamp(1.8rem,3.4vw,2.8rem);line-height:1;
+  font-variation-settings:"opsz" 144, "wght" 360, "SOFT" 70;
+}
+.menu-cat-head .cat-title .secondary{
+  font-family:"Fraunces",serif;font-style:italic;font-size:1.1rem;color:var(--ink-soft);letter-spacing:.04em;
+}
+.menu-cat-head .cat-side{
+  font-family:"Fraunces",serif;font-size:.66rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-mute);
+  text-align:right;
+}
+
+.menu-list{
+  display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(40px,6vw,90px);row-gap:6px;
+}
+.menu-item{
+  display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:14px;
+  padding:14px 0;border-bottom:1px dashed rgba(201,165,91,.13);
+  position:relative;
+}
+.menu-item:last-child{border-bottom:0}
+.menu-item .name{
+  font-family:"Fraunces",serif;font-size:1.18rem;font-weight:400;line-height:1.2;
+  font-variation-settings:"opsz" 24, "wght" 420, "SOFT" 50;
+}
+.menu-item .alt{
+  font-family:"Fraunces",serif;font-style:italic;font-size:.92rem;color:var(--ink-mute);
+  display:block;margin-top:3px;letter-spacing:.02em;
+}
+.menu-item .price{
+  font-family:"Fraunces",serif;font-size:1.05rem;color:var(--gold);
+  font-variation-settings:"opsz" 24, "wght" 480, "SOFT" 30;
+  white-space:nowrap;letter-spacing:.02em;
+}
+.menu-item.has-variants .price{display:flex;flex-direction:column;align-items:flex-end;gap:2px;font-size:.92rem}
+.menu-item.has-variants .price .row{display:flex;gap:10px;align-items:baseline}
+.menu-item.has-variants .price .row .p{color:var(--ink-mute);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase}
+.menu-item.signature .name::before{
+  content:"✦";color:var(--red);font-size:.7em;margin-right:.5em;vertical-align:.1em;
+}
+.menu-note{
+  margin-top:18px;color:var(--ink-mute);font-style:italic;font-size:.92rem;letter-spacing:.02em;
+}
+.menu-note em{color:var(--gold);font-style:normal}
+@media (max-width:880px){
+  .menu-list{grid-template-columns:1fr}
+  .menu-cat-head{grid-template-columns:1fr;gap:10px}
+  .menu-cat-head .cat-side{text-align:left}
+  .menu-nav{top:64px}
+}
+
+/* —— gallery strip —— */
+.atmosphere{
+  display:grid;grid-template-columns:1.2fr .8fr 1fr;gap:18px;
+  margin:0 clamp(20px,4vw,56px);
+}
+.atmosphere .tile{
+  aspect-ratio:4/5;position:relative;overflow:hidden;border:1px solid var(--line);
+  background:var(--bg-1);
+}
+.atmosphere .tile:nth-child(2){aspect-ratio:3/5;align-self:end}
+.atmosphere .tile:nth-child(3){aspect-ratio:5/4;align-self:start;margin-top:60px}
+.atmosphere .tile .label{
+  position:absolute;left:18px;bottom:18px;z-index:2;
+  font-family:"Fraunces",serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink);
+}
+.atmosphere .tile .num{
+  position:absolute;right:18px;top:18px;z-index:2;color:var(--gold);
+  font-family:"Fraunces",serif;font-size:.78rem;letter-spacing:.2em;
+}
+.atmosphere .tile .art{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 110%, rgba(200,54,43,.5), transparent 60%),
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201,165,91,.35), transparent 60%),
+    linear-gradient(135deg, #1a1418 0%, #0c0a0e 100%);
+}
+.atmosphere .tile.tile-1 .art{
+  background:
+    radial-gradient(ellipse 60% 60% at 50% 60%, rgba(200,54,43,.55), transparent 65%),
+    radial-gradient(circle at 30% 40%, rgba(255,200,120,.18), transparent 35%),
+    linear-gradient(160deg, #1c0e0c 0%, #08070a 100%);
+}
+.atmosphere .tile.tile-2 .art{
+  background:
+    radial-gradient(ellipse 80% 40% at 50% 50%, rgba(201,165,91,.32), transparent 60%),
+    radial-gradient(circle at 70% 30%, rgba(245,235,221,.08), transparent 40%),
+    linear-gradient(180deg, #14110d 0%, #0a0a0c 100%);
+}
+.atmosphere .tile.tile-3 .art{
+  background:
+    radial-gradient(ellipse 60% 80% at 30% 30%, rgba(138,31,23,.45), transparent 55%),
+    radial-gradient(ellipse 40% 50% at 80% 70%, rgba(201,165,91,.22), transparent 60%),
+    linear-gradient(180deg, #0e0a10 0%, #0a0a0c 100%);
+}
+.atmosphere .tile .art::after{
+  content:"";position:absolute;inset:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.6' stitchTiles='stitch' numOctaves='2'/><feColorMatrix values='0 0 0 0 1   0 0 0 0 1   0 0 0 0 1   0 0 0 .8 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.6'/></svg>");
+  mix-blend-mode:overlay;opacity:.7;
+}
+@media (max-width:760px){
+  .atmosphere{grid-template-columns:1fr 1fr;gap:10px}
+  .atmosphere .tile:nth-child(3){grid-column:1 / -1;aspect-ratio:16/9;margin-top:0}
+}
+
+/* —— visit —— */
+.visit-grid{
+  display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(40px,6vw,80px);align-items:stretch;
+}
+.map-wrap{
+  position:relative;border:1px solid var(--line-strong);
+  aspect-ratio:5/4;overflow:hidden;background:var(--bg-1);
+}
+.map-wrap iframe{
+  width:100%;height:100%;border:0;display:block;
+  filter:invert(.92) hue-rotate(180deg) saturate(.5) contrast(.95) brightness(.95);
+}
+.map-wrap .frame-corner{
+  position:absolute;width:18px;height:18px;border:1px solid var(--gold);pointer-events:none;
+}
+.map-wrap .frame-corner.tl{top:10px;left:10px;border-right:0;border-bottom:0}
+.map-wrap .frame-corner.tr{top:10px;right:10px;border-left:0;border-bottom:0}
+.map-wrap .frame-corner.bl{bottom:10px;left:10px;border-right:0;border-top:0}
+.map-wrap .frame-corner.br{bottom:10px;right:10px;border-left:0;border-top:0}
+.map-wrap .map-tag{
+  position:absolute;bottom:18px;left:18px;z-index:2;
+  background:rgba(10,10,12,.86);backdrop-filter:blur(8px);
+  padding:10px 16px;border:1px solid var(--line-strong);
+  font-family:"Fraunces",serif;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);
+  display:flex;align-items:center;gap:10px;
+}
+.map-wrap .map-tag .pulse{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 rgba(200,54,43,.6);animation:pulse 2.4s var(--ease) infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(200,54,43,.5)}100%{box-shadow:0 0 0 16px rgba(200,54,43,0)}}
+
+.visit-info{display:flex;flex-direction:column;gap:36px;justify-content:center}
+.info-block{display:flex;flex-direction:column;gap:10px;border-left:1px solid var(--line);padding-left:22px}
+.info-block .label{font-family:"Fraunces",serif;font-size:.66rem;letter-spacing:.36em;text-transform:uppercase;color:var(--gold)}
+.info-block .value{font-family:"Fraunces",serif;font-size:1.4rem;line-height:1.3;font-variation-settings:"opsz" 96, "wght" 360, "SOFT" 60}
+.info-block .value a{color:var(--ink);transition:color .25s}
+.info-block .value a:hover{color:var(--gold)}
+.info-block .small{color:var(--ink-mute);font-size:.95rem;font-style:italic}
+
+.hours-list{display:grid;grid-template-columns:1fr auto;gap:6px 24px}
+.hours-list .day{font-family:"Fraunces",serif;font-size:.96rem;letter-spacing:.06em;color:var(--ink-soft)}
+.hours-list .time{font-family:"Fraunces",serif;font-size:.96rem;color:var(--ink);font-variation-settings:"opsz" 24, "wght" 420}
+.hours-list .day.today{color:var(--gold)}
+.hours-list .time.today{color:var(--gold)}
+.hours-note{
+  margin-top:14px;font-style:italic;color:var(--ink-mute);font-size:.86rem;letter-spacing:.02em;
+}
+@media (max-width:880px){
+  .visit-grid{grid-template-columns:1fr}
+}
+
+/* —— footer —— */
+.footer{
+  border-top:1px solid var(--line);
+  padding:80px clamp(20px,4vw,56px) 50px;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;align-items:end;
+}
+.footer .f-logo{font-family:"Allura",cursive;font-size:54px;line-height:1}
+.footer .f-logo .t{color:var(--red)}
+.footer .f-logo small{display:block;font-family:"Fraunces",serif;font-size:.66rem;letter-spacing:.4em;text-transform:uppercase;color:var(--ink-mute);margin-top:6px;letter-spacing:.4em}
+.footer .f-mid{display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center;color:var(--ink-soft);font-size:.95rem}
+.footer .f-mid .ig{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:"Fraunces",serif;font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);
+  border:1px solid var(--line-strong);padding:10px 18px;border-radius:999px;transition:all .25s;
+}
+.footer .f-mid .ig:hover{border-color:var(--gold);color:var(--gold)}
+.footer .f-end{text-align:right;color:var(--ink-mute);font-size:.78rem;font-family:"Fraunces",serif;letter-spacing:.16em}
+.footer .f-end .credit{display:block;margin-top:8px;font-family:"Allura",cursive;font-size:1.4rem;color:var(--gold);letter-spacing:0}
+@media (max-width:760px){
+  .footer{grid-template-columns:1fr;text-align:center;gap:30px}
+  .footer .f-end{text-align:center}
+}
+
+/* —— reveal animations —— */
+.reveal-line{display:block;overflow:hidden}
+.reveal-line > *{display:block;transform:translateY(110%);transition:transform .9s var(--ease)}
+.reveal-line.in > *{transform:translateY(0)}
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.fade-up.in{opacity:1;transform:translateY(0)}
+.fade-up.d-1{transition-delay:.08s}
+.fade-up.d-2{transition-delay:.16s}
+.fade-up.d-3{transition-delay:.24s}
+.fade-up.d-4{transition-delay:.32s}
+
+/* —— misc —— */
+::selection{background:var(--red);color:var(--ink)}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-marble"></div>
+<div class="bg-grain"></div>
+<div class="veil"></div>
+
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a class="nav-logo" href="#top" aria-label="Gourm-eT">Gourm-e<span class="t">T</span></a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#manifesto" data-fr="Maison" data-tr="Hakkında">Maison</a>
+    <a href="#menu" data-fr="La Carte" data-tr="Menü">La Carte</a>
+    <a href="#visit" data-fr="Nous Trouver" data-tr="Bize Ulaşın">Nous Trouver</a>
+  </nav>
+  <div class="nav-right">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button data-lang="fr" class="active">FR</button>
+      <span class="sep">·</span>
+      <button data-lang="tr">TR</button>
+    </div>
+    <a class="btn-reserve" href="tel:+32484762738" data-fr="Réserver" data-tr="Rezervasyon">
+      <span class="dot" aria-hidden="true"></span>
+      Réserver
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ——————————————————— HERO ——————————————————— -->
+<section class="hero" aria-label="Gourm-eT By Eta">
+  <div class="hero-decor" aria-hidden="true">
+    <div class="ring r1"></div>
+    <div class="ring r2"></div>
+    <svg class="star s1" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2 9 8 1-6 6 2 8-6-4-6 4 2-8-6-6 8-1z"/></svg>
+    <svg class="star s2" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2 9 8 1-6 6 2 8-6-4-6 4 2-8-6-6 8-1z"/></svg>
+    <svg class="star s3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2 9 8 1-6 6 2 8-6-4-6 4 2-8-6-6 8-1z"/></svg>
+  </div>
+
+  <div class="hero-meta-top">
+    <div class="left">
+      <span class="num">01<em>/06</em></span>
+      <span class="eyebrow" data-fr="Bruxelles · Steakhouse Turc · Depuis 2024" data-tr="Brüksel · Türk Et Lokantası · 2024'ten beri">Bruxelles · Steakhouse Turc · Depuis 2024</span>
+    </div>
+    <div class="right">
+      <span class="eyebrow" data-fr="50,8676° N · 4,3737° E" data-tr="50,8676° K · 4,3737° D">50,8676° N · 4,3737° E</span>
+    </div>
+  </div>
+
+  <div class="hero-stage">
+    <div>
+      <h1 class="wordmark" aria-label="Gourm-eT">
+        <span class="char">G</span><span class="char">o</span><span class="char">u</span><span class="char">r</span><span class="char">m</span><span class="char">-</span><span class="char">e</span><span class="char red">T</span>
+      </h1>
+      <div class="wordmark-sub">By Eta</div>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <div class="left">
+      <span data-fr="Turkish Speciality Food" data-tr="Türk Lezzetleri">Turkish Speciality Food</span>
+      <span data-fr="Viandes maturées · Pides au feu · Mezzés" data-tr="Olgunlaştırılmış etler · Taş fırın pide · Meze">Viandes maturées · Pides au feu · Mezzés</span>
+    </div>
+    <div class="center">
+      <div class="scroll-cue">
+        <span data-fr="Découvrir" data-tr="Keşfet">Découvrir</span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <div class="right">
+      <a href="tel:+32484762738">+32&nbsp;484&nbsp;76&nbsp;27&nbsp;38</a>
+      <span data-fr="Réservations · 7j/7" data-tr="Rezervasyon · Her gün">Réservations · 7j/7</span>
+    </div>
+  </div>
+</section>
+
+<!-- ——————————————————— MARQUEE ——————————————————— -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee1"></div>
+</div>
+
+<!-- ——————————————————— MANIFESTO ——————————————————— -->
+<section class="section-pad" id="manifesto">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">02<em>/06</em></div>
+      <div class="section-title">
+        <span class="eyebrow" data-fr="La Maison" data-tr="Lokanta">La Maison</span>
+        <h2 data-fr="Une maison du goût, à la croisée d'Anatolie et de Bruxelles." data-tr="Anadolu ve Brüksel'in buluştuğu bir lezzet evi.">Une maison du goût, à la croisée d'Anatolie et de Bruxelles.</h2>
+        <span class="alt" data-fr="par Eta" data-tr="Eta'nın imzasıyla">par Eta</span>
+      </div>
+    </div>
+
+    <div class="manifesto-grid">
+      <p class="lede" data-fr="Le feu, la braise, l'os à la moelle. Des viandes choisies par le boucher comme on choisit un <em>bijou</em> — entrecôte, côte à l'os, tomahawk — saisies à vif et servies sur planche." data-tr="Ateş, kor, ilikli kemik. Bir <em>mücevher</em> seçer gibi seçilmiş etler — antrikot, kemikli antrikot, tomahawk — közde mühürlenip tahta tabakta sunulur.">
+        Le feu, la braise, l'os à la moelle. Des viandes choisies par le boucher comme on choisit un <em>bijou</em> — entrecôte, côte à l'os, tomahawk — saisies à vif et servies sur planche.
+      </p>
+      <div class="body">
+        <p data-fr="À Schaerbeek, derrière une façade discrète, Gourm-eT cultive un art ancien : celui du grill turc, des pides cuites au four à pierre, des mezzés ouverts comme un éventail. La carte est courte, précise, et ne triche pas." data-tr="Schaerbeek'in mütevazı cephesi ardında Gourm-eT, eski bir sanatı yaşatır: Türk mangalı, taş fırın pide ve yelpaze gibi açılan mezeler. Menü kısa, kesin ve dürüsttür.">
+          À Schaerbeek, derrière une façade discrète, Gourm-eT cultive un art ancien : celui du grill turc, des pides cuites au four à pierre, des mezzés ouverts comme un éventail. La carte est courte, précise, et ne triche pas.
+        </p>
+        <p data-fr="Du baklava au künefe, du thé turc au cappuccino doré, chaque détail s'écrit à la main. Vous êtes ici chez Eta — un nom, une signature, une promesse." data-tr="Baklavadan künefeye, Türk çayından altın kapuçinoya, her ayrıntı el yazısıyla yazılır. Burada Eta'nın evindesiniz — bir isim, bir imza, bir söz.">
+          Du baklava au künefe, du thé turc au cappuccino doré, chaque détail s'écrit à la main. Vous êtes ici chez Eta — un nom, une signature, une promesse.
+        </p>
+        <span class="sig">Eta.</span>
+      </div>
+    </div>
+
+    <div class="pillars">
+      <div>
+        <span class="k">79€</span>
+        <span class="l" data-fr="Tomahawk · 2 pers" data-tr="Tomahawk · 2 kişi">Tomahawk · 2 pers</span>
+        <span class="d" data-fr="Pièce de partage, ~1 kg, maturée." data-tr="Paylaşımlık parça, ~1 kg, olgunlaştırılmış.">Pièce de partage, ~1 kg, maturée.</span>
+      </div>
+      <div>
+        <span class="k">15h</span>
+        <span class="l" data-fr="Service continu" data-tr="Aralıksız servis">Service continu</span>
+        <span class="d" data-fr="Du petit-déjeuner à la dernière braise." data-tr="Kahvaltıdan son köze kadar.">Du petit-déjeuner à la dernière braise.</span>
+      </div>
+      <div>
+        <span class="k">7/7</span>
+        <span class="l" data-fr="Ouvert tous les jours" data-tr="Her gün açık">Ouvert tous les jours</span>
+        <span class="d" data-fr="08:00 — 23:00 · Schaerbeek." data-tr="08:00 — 23:00 · Schaerbeek.">08:00 — 23:00 · Schaerbeek.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ——————————————————— MARQUEE ——————————————————— -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee2"></div>
+</div>
+
+<!-- ——————————————————— MENU ——————————————————— -->
+<section class="section-pad menu-section" id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">03<em>/06</em></div>
+      <div class="section-title">
+        <span class="eyebrow" data-fr="La Carte" data-tr="Menü">La Carte</span>
+        <h2 data-fr="Onze chapitres pour une seule histoire — celle du goût." data-tr="Tek bir hikâye için on bir bölüm — lezzetin hikâyesi.">Onze chapitres pour une seule histoire — celle du goût.</h2>
+        <span class="alt" data-fr="afiyet olsun" data-tr="bon appétit">afiyet olsun</span>
+      </div>
+    </div>
+
+    <nav class="menu-nav" aria-label="Menu sections">
+      <div class="scroller" id="menuChips"></div>
+    </nav>
+
+    <div id="menuRoot"></div>
+
+    <p class="menu-note" data-fr="<em>Allergènes :</em> veuillez consulter le personnel pour toute question relative aux allergènes." data-tr="<em>Alerjenler:</em> alerjenlerle ilgili her türlü soru için personelimize danışınız.">
+      <em>Allergènes :</em> veuillez consulter le personnel pour toute question relative aux allergènes.
+    </p>
+  </div>
+</section>
+
+<!-- ——————————————————— ATMOSPHERE ——————————————————— -->
+<section class="section-pad" id="atmosphere" style="padding-top:60px">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">04<em>/06</em></div>
+      <div class="section-title">
+        <span class="eyebrow" data-fr="L'Atmosphère" data-tr="Atmosfer">L'Atmosphère</span>
+        <h2 data-fr="Une salle basse, du marbre, du feu. Le reste, vous le verrez." data-tr="Alçak bir salon, mermer, ateş. Gerisini siz göreceksiniz.">Une salle basse, du marbre, du feu. Le reste, vous le verrez.</h2>
+      </div>
+    </div>
+  </div>
+  <div class="atmosphere">
+    <div class="tile tile-1"><div class="art"></div><span class="num">I</span><span class="label" data-fr="La braise" data-tr="Kor">La braise</span></div>
+    <div class="tile tile-2"><div class="art"></div><span class="num">II</span><span class="label" data-fr="L'or" data-tr="Altın">L'or</span></div>
+    <div class="tile tile-3"><div class="art"></div><span class="num">III</span><span class="label" data-fr="La salle" data-tr="Salon">La salle</span></div>
+  </div>
+</section>
+
+<!-- ——————————————————— MARQUEE ——————————————————— -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee3"></div>
+</div>
+
+<!-- ——————————————————— VISIT ——————————————————— -->
+<section class="section-pad" id="visit">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">05<em>/06</em></div>
+      <div class="section-title">
+        <span class="eyebrow" data-fr="Nous Trouver" data-tr="Bize Ulaşın">Nous Trouver</span>
+        <h2 data-fr="Chau. de Haecht 108, 1030 Schaerbeek." data-tr="Chau. de Haecht 108, 1030 Schaerbeek.">Chau. de Haecht 108, 1030 Schaerbeek.</h2>
+        <span class="alt" data-fr="Bruxelles · Belgique" data-tr="Brüksel · Belçika">Bruxelles · Belgique</span>
+      </div>
+    </div>
+
+    <div class="visit-grid">
+      <div class="map-wrap">
+        <iframe
+          title="Gourm-eT location"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=Chauss%C3%A9e+de+Haecht+108%2C+1030+Schaerbeek%2C+Belgium&t=m&z=16&output=embed&iwloc=near"></iframe>
+        <span class="frame-corner tl"></span>
+        <span class="frame-corner tr"></span>
+        <span class="frame-corner bl"></span>
+        <span class="frame-corner br"></span>
+        <span class="map-tag">
+          <span class="pulse"></span>
+          <span data-fr="Gourm-eT By Eta" data-tr="Gourm-eT By Eta">Gourm-eT By Eta</span>
+        </span>
+      </div>
+
+      <div class="visit-info">
+        <div class="info-block">
+          <span class="label" data-fr="Adresse" data-tr="Adres">Adresse</span>
+          <span class="value">
+            <a href="https://www.google.com/maps/search/?api=1&query=Chauss%C3%A9e+de+Haecht+108%2C+1030+Schaerbeek" target="_blank" rel="noopener">
+              Chau. de Haecht 108<br>1030 Schaerbeek
+            </a>
+          </span>
+          <span class="small" data-fr="Bruxelles, Belgique" data-tr="Brüksel, Belçika">Bruxelles, Belgique</span>
+        </div>
+        <div class="info-block">
+          <span class="label" data-fr="Réservations" data-tr="Rezervasyon">Réservations</span>
+          <span class="value"><a href="tel:+32484762738">+32&nbsp;484&nbsp;76&nbsp;27&nbsp;38</a></span>
+          <span class="small" data-fr="Appelez-nous, on vous garde une place." data-tr="Bizi arayın, size bir yer ayıralım.">Appelez-nous, on vous garde une place.</span>
+        </div>
+        <div class="info-block">
+          <span class="label" data-fr="Heures d'ouverture" data-tr="Çalışma Saatleri">Heures d'ouverture</span>
+          <div class="hours-list" id="hoursList"></div>
+          <span class="hours-note" data-fr="Jeudi de l'Ascension : les horaires peuvent varier." data-tr="İsa'nın Göğe Yükselişi (Perşembe): saatler değişebilir.">
+            Jeudi de l'Ascension : les horaires peuvent varier.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ——————————————————— FOOTER ——————————————————— -->
+<footer class="footer">
+  <div class="f-logo">
+    Gourm-e<span class="t">T</span>
+    <small data-fr="By Eta · Turkish Speciality Food" data-tr="By Eta · Türk Lezzetleri">By Eta · Turkish Speciality Food</small>
+  </div>
+  <div class="f-mid">
+    <a class="ig" href="https://instagram.com/gourmet_by_eta" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+      @gourmet_by_eta
+    </a>
+    <span data-fr="Bruxelles — Schaerbeek" data-tr="Brüksel — Schaerbeek">Bruxelles — Schaerbeek</span>
+  </div>
+  <div class="f-end">
+    <span data-fr="© 2026 Gourm-eT By Eta · Tous droits réservés" data-tr="© 2026 Gourm-eT By Eta · Tüm hakları saklıdır">© 2026 Gourm-eT By Eta · Tous droits réservés</span>
+    <span class="credit" data-fr="afiyet olsun" data-tr="bon appétit">afiyet olsun</span>
+  </div>
+</footer>
+
+<!-- ——————————————————— SCRIPTS ——————————————————— -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+/* ===================== DATA ===================== */
+const MENU = [
+  {
+    id:"breakfast",
+    fr:"Petit Déjeuner", tr:"Kahvaltı",
+    items:[
+      { fr:"Gourm-et", tr:"Gourm-et", price:"15,00€", signature:true }
+    ]
+  },
+  {
+    id:"starters",
+    fr:"Entrées", tr:"Başlangıçlar",
+    items:[
+      { fr:"Cacık", tr:"Cacık", price:"7,50€" },
+      { fr:"Ezme", tr:"Ezme", price:"7,50€" },
+      { fr:"Calamar", tr:"Kalamar", price:"7,50€" },
+      { fr:"Cigare feuilleté au fromage", tr:"Peynirli Sigara Böreği", price:"7,50€" },
+      { fr:"Oignons et ail confits au four", tr:"Fırında Soğan ve Sarımsak", price:"7,50€" },
+      { fr:"Boulettes farcies", tr:"İçli Köfte", price:"7,50€" },
+      { fr:"Champignons au four", tr:"Fırında Mantar", price:"7,50€" },
+      { fr:"Scampis diabolo", tr:"Acılı karides", price:"12,50€" },
+      { fr:"Carpaccio", tr:"Carpaccio", price:"17,50€" },
+      { fr:"Frites", tr:"Patates Kızartması", price:"6,00€" },
+      { fr:"Mezze du Gourm-et", tr:"Mezze Gourm-et", signature:true,
+        variants:[ {p:"2",price:"12,50€"}, {p:"4",price:"25,00€"}, {p:"5",price:"37,50€"} ] }
+    ]
+  },
+  {
+    id:"salads",
+    fr:"Salades", tr:"Salatalar",
+    items:[
+      { fr:"Salade du Gourm-et", tr:"Gourm-et Salata", price:"13,00€", signature:true },
+      { fr:"Salade paysanne", tr:"Çoban Salatası", price:"9,00€" }
+    ]
+  },
+  {
+    id:"soups",
+    fr:"Soupes", tr:"Çorbalar",
+    items:[
+      { fr:"Soupe de lentilles", tr:"Mercimek Çorbası", price:"6,00€" },
+      { fr:"Soupe de tripes", tr:"İşkembe Çorbası", price:"6,00€" },
+      { fr:"Soupe de poulet", tr:"Tavuk Çorbası", price:"6,00€" },
+      { fr:"Soupe de gombo", tr:"Bamya Çorbası", price:"11,50€" }
+    ]
+  },
+  {
+    id:"special",
+    fr:"Gourm-eT Spécial", tr:"Gourm-eT Özel",
+    note_fr:"Sauces : poivre · archiduc",
+    note_tr:"Soslar: kara biber · arşidük",
+    items:[
+      { fr:"Lokum", tr:"Lokum", price:"33,00€", signature:true },
+      { fr:"Entrecôte", tr:"Antrikot", price:"31,00€" },
+      { fr:"Côte à l'os", tr:"Kemikli antrikot", price:"37,00€" },
+      { fr:"T-bone steak", tr:"T-bone steak", sub_fr:"500–600g", sub_tr:"500–600g", price:"41,00€" },
+      { fr:"Tomahawk", tr:"Tomahawk", sub_fr:"2 pers · ~1 kg", sub_tr:"2 kişilik · ~1 kg", price:"79,00€", signature:true },
+      { fr:"Côtelettes d'agneau", tr:"Kuzu pirzola", price:"24,50€" },
+      { fr:"Steak nature", tr:"Biftek", price:"30,00€" }
+    ]
+  },
+  {
+    id:"grills",
+    fr:"Grillades", tr:"Izgaralar",
+    items:[
+      { fr:"Adana kebap", tr:"Adana Kebap", price:"19,50€", signature:true },
+      { fr:"Brochettes de bœuf", tr:"Dana Şiş", price:"19,50€" },
+      { fr:"Brochettes de poulet", tr:"Tavuk Şiş", price:"19,50€" },
+      { fr:"Brochettes d'agneau", tr:"Kuzu Şiş", price:"19,50€" },
+      { fr:"Ailes de poulet", tr:"Kanat", price:"17,50€" },
+      { fr:"Assortiment de grillades", tr:"Karışık Izgara", sub_fr:"1 pers", sub_tr:"1 kişilik", price:"23,00€" },
+      { fr:"Foie grillé", tr:"Canım Ciğerim", price:"18,50€" },
+      { fr:"Saç kavurma", tr:"Saç Kavurma", price:"17,50€" },
+      { fr:"Assortiment de grillades", tr:"Karışık Izgara", signature:true,
+        variants:[ {p:"2",price:"40,00€"}, {p:"4",price:"80,00€"}, {p:"5",price:"100,00€"} ] }
+    ]
+  },
+  {
+    id:"pide",
+    fr:"Pide · Pizzas Turques", tr:"Pideler",
+    items:[
+      { fr:"Pide à la viande hachée", tr:"Kıymalı Pide", price:"12,00€" },
+      { fr:"Pide au fromage", tr:"Peynirli Pide", price:"12,00€" },
+      { fr:"Pide à l'œuf", tr:"Yumurtalı Pide", price:"12,00€" },
+      { fr:"Pide mixte", tr:"Karışık Pide", sub_fr:"haché et fromage", sub_tr:"kıyma ve peynir", price:"14,00€" },
+      { fr:"Pide dés de viande", tr:"Kuşbaşılı Pide", price:"13,00€" },
+      { fr:"Pide aux légumes", tr:"Sebzeli Pide", price:"12,00€" },
+      { fr:"Pide aux champignons", tr:"Mantarlı Pide", price:"13,50€" },
+      { fr:"Pide aux scampis", tr:"Karidesli Pide", price:"14,00€" },
+      { fr:"Pide au poulet", tr:"Tavuklu Pide", price:"12,00€" },
+      { fr:"Pide au saucisson", tr:"Sucuklu Pide", price:"13,50€" },
+      { fr:"Pide aux épinards", tr:"Ispanaklı Pide", price:"13,00€" },
+      { fr:"Lahmacun", tr:"Lahmacun", price:"6,00€" },
+      { fr:"Pide spécial Gourm-et", tr:"Gourm-et Özel Pide", price:"18,00€", signature:true }
+    ]
+  },
+  {
+    id:"desserts",
+    fr:"Desserts", tr:"Tatlılar",
+    items:[
+      { fr:"Riz au lait", tr:"Sütlaç", price:"6,00€" },
+      { fr:"Baklava du Gourmet", tr:"Havuç dilimi baklava", price:"9,00€", signature:true },
+      { fr:"Künefe", tr:"Künefe", price:"9,00€" },
+      { fr:"Tarte tatin", tr:"Elmalı tart", price:"9,00€" }
+    ]
+  },
+  {
+    id:"drinks",
+    fr:"Boissons", tr:"İçecekler",
+    items:[
+      { fr:"Coca-Cola", tr:"Coca-Cola", price:"2,50€" },
+      { fr:"Coca-Cola zéro", tr:"Coca-Cola Zero", price:"2,50€" },
+      { fr:"Fanta", tr:"Fanta", price:"2,50€" },
+      { fr:"Sprite", tr:"Sprite", price:"2,50€" },
+      { fr:"Looza", tr:"Looza", price:"3,25€" },
+      { fr:"Boisson au navet", tr:"Şalgam", sub_fr:"1 L", sub_tr:"1 L", price:"8,00€" },
+      { fr:"Ayran", tr:"Ayran", price:"2,50€" },
+      { fr:"Ayran", tr:"Ayran", sub_fr:"1 L", sub_tr:"1 L", price:"8,00€" },
+      { fr:"Eau", tr:"Su", price:"2,00€" },
+      { fr:"Eau", tr:"Su", sub_fr:"1 L", sub_tr:"1 L", price:"5,00€" },
+      { fr:"Soft", tr:"Soft", sub_fr:"1 L", sub_tr:"1 L", price:"8,00€" },
+      { fr:"Uludağ gazoz", tr:"Uludağ gazoz", price:"2,50€" },
+      { fr:"Oasis tropical", tr:"Oasis tropical", price:"3,00€" },
+      { fr:"Red Bull", tr:"Red Bull", price:"3,50€" }
+    ]
+  },
+  {
+    id:"mocktails",
+    fr:"Mocktails", tr:"Mocktailler",
+    items:[
+      { fr:"Mocktail à la fraise", tr:"Çilekli Mocktail", price:"7,00€" },
+      { fr:"Mocktail passion du Gourmet", tr:"Gourmet çarkıfelek Mocktail", price:"8,00€", signature:true }
+    ]
+  },
+  {
+    id:"hot",
+    fr:"Coin Chaud", tr:"Sıcak İçecekler",
+    items:[
+      { fr:"Thé turc", tr:"Türk Çayı", price:"2,50€" },
+      { fr:"Thé à la menthe", tr:"Nane", price:"2,50€" },
+      { fr:"Café", tr:"Kahve", price:"2,50€" },
+      { fr:"Café turc", tr:"Türk Kahvesi", price:"3,50€" },
+      { fr:"Cappuccino", tr:"Cappuccino", price:"3,50€" },
+      { fr:"Cappuccino gold", tr:"Gold Cappuccino", price:"15,00€", signature:true },
+      { fr:"Latte", tr:"Latte", price:"4,50€" }
+    ]
+  }
+];
+
+const HOURS = [
+  { fr:"Lundi", tr:"Pazartesi", time:"08:00 — 23:00" },
+  { fr:"Mardi", tr:"Salı", time:"08:00 — 23:00" },
+  { fr:"Mercredi", tr:"Çarşamba", time:"08:00 — 23:00" },
+  { fr:"Jeudi", tr:"Perşembe", time:"08:00 — 23:00" },
+  { fr:"Vendredi", tr:"Cuma", time:"08:00 — 23:00" },
+  { fr:"Samedi", tr:"Cumartesi", time:"08:00 — 23:00" },
+  { fr:"Dimanche", tr:"Pazar", time:"08:00 — 23:00" }
+];
+
+/* ===================== STATE / I18N ===================== */
+let lang = "fr";
+
+function applyLang(next){
+  lang = next;
+  document.documentElement.lang = next;
+  // text content swap
+  document.querySelectorAll("[data-fr][data-tr]").forEach(el=>{
+    const v = el.getAttribute("data-"+next);
+    if (!v) return;
+    if (v.includes("<em")) el.innerHTML = v;
+    else el.textContent = v;
+  });
+  // lang buttons
+  document.querySelectorAll(".lang-switch button").forEach(b=>{
+    b.classList.toggle("active", b.dataset.lang===next);
+  });
+  // re-render dynamic regions
+  renderMenu();
+  renderHours();
+  renderMarquees();
+}
+
+/* ===================== MENU RENDER ===================== */
+const menuRoot = document.getElementById("menuRoot");
+const menuChips = document.getElementById("menuChips");
+
+function priceBlock(item){
+  if (item.variants){
+    return `<span class="price">${item.variants.map(v=>`<span class="row"><span class="p">${v.p}&nbsp;${lang==='fr'?'pers':'kişi'}</span><span>${v.price}</span></span>`).join("")}</span>`;
+  }
+  return `<span class="price">${item.price}</span>`;
+}
+
+function itemHTML(item){
+  const primary = item[lang];
+  const other = item[lang==='fr'?'tr':'fr'];
+  const sub = item['sub_'+lang] || item['sub_'+(lang==='fr'?'tr':'fr')] || "";
+  const showOther = primary !== other;
+  return `
+    <div class="menu-item ${item.variants?'has-variants':''} ${item.signature?'signature':''}">
+      <div>
+        <span class="name">${primary}${sub?` · <span style="color:var(--ink-mute);font-style:italic;font-weight:400">${sub}</span>`:''}</span>
+        ${showOther?`<span class="alt">${other}</span>`:''}
+      </div>
+      ${priceBlock(item)}
+    </div>`;
+}
+
+function renderMenu(){
+  // chips
+  menuChips.innerHTML = MENU.map((c,i)=>
+    `<button data-target="cat-${c.id}">${c[lang]}</button>`
+  ).join("");
+  // categories
+  menuRoot.innerHTML = MENU.map((c,i)=>{
+    const num = String(i+1).padStart(2,"0");
+    const note = c["note_"+lang] || "";
+    return `
+      <article class="menu-cat" id="cat-${c.id}">
+        <header class="menu-cat-head">
+          <span class="cat-num">— ${num}</span>
+          <div class="cat-title">
+            <span class="primary">${c[lang]}</span>
+            <span class="secondary">${c[lang==='fr'?'tr':'fr']}</span>
+          </div>
+          <span class="cat-side">${c.items.length} ${lang==='fr'?'plats':'lezzet'}</span>
+        </header>
+        <div class="menu-list">${c.items.map(itemHTML).join("")}</div>
+        ${note?`<p class="menu-note"><em>—</em> ${note}</p>`:""}
+      </article>`;
+  }).join("");
+
+  // chips click → smooth scroll
+  document.querySelectorAll(".menu-nav button").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const tgt = document.getElementById(btn.dataset.target);
+      if (!tgt) return;
+      const y = tgt.getBoundingClientRect().top + window.scrollY - 140;
+      lenis ? lenis.scrollTo(y, {duration:1.2}) : window.scrollTo({top:y, behavior:"smooth"});
+    });
+  });
+
+  // active chip on scroll
+  setupActiveChip();
+}
+
+function setupActiveChip(){
+  const chips = [...document.querySelectorAll(".menu-nav button")];
+  const cats = MENU.map(c=>document.getElementById("cat-"+c.id));
+  function update(){
+    const sy = window.scrollY + 200;
+    let active = 0;
+    cats.forEach((el,i)=>{ if (el && el.offsetTop <= sy) active = i; });
+    chips.forEach((b,i)=>b.classList.toggle("active", i===active));
+    // ensure active chip visible
+    const a = chips[active];
+    if (a) {
+      const wrap = document.querySelector(".menu-nav .scroller");
+      const aLeft = a.offsetLeft, aRight = aLeft + a.offsetWidth;
+      if (aLeft < wrap.scrollLeft + 20) wrap.scrollTo({left:aLeft-20, behavior:"smooth"});
+      else if (aRight > wrap.scrollLeft + wrap.clientWidth - 20) wrap.scrollTo({left:aRight - wrap.clientWidth + 20, behavior:"smooth"});
+    }
+  }
+  window.removeEventListener("scroll", window.__chipUpdate);
+  window.__chipUpdate = update;
+  window.addEventListener("scroll", update, {passive:true});
+  update();
+}
+
+/* ===================== HOURS RENDER ===================== */
+function renderHours(){
+  const todayIdx = (new Date().getDay() + 6) % 7; // 0 = Mon
+  document.getElementById("hoursList").innerHTML = HOURS.map((h,i)=>{
+    const cls = i===todayIdx?" today":"";
+    return `<span class="day${cls}">${h[lang]}</span><span class="time${cls}">${h.time}</span>`;
+  }).join("");
+}
+
+/* ===================== MARQUEE ===================== */
+function renderMarquees(){
+  const sets = [
+    [
+      {t:"Bon appétit", s:true}, {t:"✦"}, {t:"Afiyet olsun", s:true}, {t:"✦"},
+      {t:"Gourm-eT By Eta"}, {t:"✦"}, {t:"Steakhouse Turc"}, {t:"✦"},
+      {t:"Bruxelles · Schaerbeek"}, {t:"✦"}
+    ],
+    [
+      {t:"Tomahawk · 2 pers"}, {t:"✦"}, {t:"Adana Kebap"}, {t:"✦"},
+      {t:"Künefe"}, {t:"✦"}, {t:"Baklava"}, {t:"✦"}, {t:"Pide au feu"}, {t:"✦"},
+      {t:"Mezze"}, {t:"✦"}
+    ],
+    [
+      {t:"+32 484 76 27 38"}, {t:"✦"}, {t:"Réserver"}, {t:"✦"},
+      {t:"Ouvert 7/7"}, {t:"✦"}, {t:"08:00 — 23:00"}, {t:"✦"},
+      {t:"@gourmet_by_eta"}, {t:"✦"}
+    ]
+  ];
+  ["marquee1","marquee2","marquee3"].forEach((id, i)=>{
+    const node = document.getElementById(id);
+    if (!node) return;
+    const seq = sets[i].map(it=>{
+      if (it.t==="✦") return `<span class="diamond">✦</span>`;
+      if (it.s) return `<span class="script">${it.t}</span>`;
+      return `<span>${it.t}</span>`;
+    }).join("");
+    node.innerHTML = `<span>${seq}</span><span aria-hidden="true">${seq}</span>`;
+  });
+}
+
+/* ===================== LANG TOGGLE ===================== */
+document.querySelectorAll(".lang-switch button").forEach(b=>{
+  b.addEventListener("click",()=>applyLang(b.dataset.lang));
+});
+
+/* ===================== LENIS SMOOTH SCROLL ===================== */
+let lenis = null;
+if (window.Lenis){
+  lenis = new Lenis({
+    duration:1.1,
+    easing:(t)=> 1 - Math.pow(1 - t, 3),
+    smoothWheel:true,
+    smoothTouch:false
+  });
+  function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+}
+
+/* ===================== NAV STATE ===================== */
+const navEl = document.getElementById("nav");
+window.addEventListener("scroll", ()=>{
+  navEl.classList.toggle("is-scrolled", window.scrollY > 30);
+}, {passive:true});
+
+/* ===================== CUSTOM CURSOR ===================== */
+const dot = document.querySelector(".cursor-dot");
+const ring = document.querySelector(".cursor-ring");
+let mx=window.innerWidth/2, my=window.innerHeight/2;
+let rx=mx, ry=my;
+window.addEventListener("pointermove", e=>{ mx=e.clientX; my=e.clientY; });
+function tickCursor(){
+  rx += (mx-rx)*0.18; ry += (my-ry)*0.18;
+  dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%,-50%)`;
+  ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
+  requestAnimationFrame(tickCursor);
+}
+tickCursor();
+document.addEventListener("pointerover", e=>{
+  if (e.target.closest("a,button")) ring.classList.add("hover");
+});
+document.addEventListener("pointerout", e=>{
+  if (e.target.closest("a,button")) ring.classList.remove("hover");
+});
+
+/* ===================== INITIAL RENDER ===================== */
+renderMarquees();
+renderMenu();
+renderHours();
+applyLang("fr");
+
+/* ===================== GSAP ANIMATIONS ===================== */
+gsap.registerPlugin(ScrollTrigger);
+
+// hero wordmark — char-by-char arrival
+gsap.set(".wordmark .char", { yPercent:120, opacity:0, filter:"blur(12px)" });
+gsap.set(".wordmark-sub", { opacity:0, y:20 });
+gsap.set(".hero-meta-top .left, .hero-meta-top .right", { opacity:0, y:-12 });
+gsap.set(".hero-foot > *", { opacity:0, y:14 });
+gsap.set(".hero-decor .ring, .hero-decor .star", { opacity:0, scale:.85, transformOrigin:"50% 50%" });
+
+const tl = gsap.timeline({ defaults:{ ease:"power3.out" } });
+tl.to(".hero-decor .ring", { opacity:.6, scale:1, duration:1.6, stagger:.12 }, 0)
+  .to(".hero-decor .star", { opacity:.55, scale:1, duration:.8, stagger:.08 }, .2)
+  .to(".wordmark .char", {
+      yPercent:0, opacity:1, filter:"blur(0px)",
+      duration:1.1, stagger:.05, ease:"expo.out"
+    }, .15)
+  .to(".wordmark-sub", { opacity:1, y:0, duration:.8 }, "-=0.5")
+  .to(".hero-meta-top .left", { opacity:1, y:0, duration:.7 }, "-=0.7")
+  .to(".hero-meta-top .right", { opacity:1, y:0, duration:.7 }, "<")
+  .to(".hero-foot > *", { opacity:1, y:0, duration:.8, stagger:.08 }, "-=0.4");
+
+// hero parallax
+gsap.to(".hero-decor .ring.r1", { yPercent:-12, ease:"none", scrollTrigger:{ trigger:".hero", start:"top top", end:"bottom top", scrub:true }});
+gsap.to(".hero-decor .ring.r2", { yPercent:8, ease:"none", scrollTrigger:{ trigger:".hero", start:"top top", end:"bottom top", scrub:true }});
+gsap.to(".wordmark", { yPercent:-6, opacity:.4, ease:"none", scrollTrigger:{ trigger:".hero", start:"top top", end:"bottom top", scrub:true }});
+
+// section heads
+function revealHeads(){
+  document.querySelectorAll(".section-head").forEach(head=>{
+    const num = head.querySelector(".section-num");
+    const eyebrow = head.querySelector(".eyebrow");
+    const h2 = head.querySelector("h2");
+    const alt = head.querySelector(".alt");
+    gsap.set([num, eyebrow, alt].filter(Boolean), { opacity:0, y:24 });
+    if (h2){
+      gsap.set(h2, { opacity:0, y:30 });
+    }
+    gsap.timeline({
+      scrollTrigger:{ trigger:head, start:"top 78%", toggleActions:"play none none none" }
+    })
+    .to([eyebrow, num].filter(Boolean), { opacity:1, y:0, duration:.7, stagger:.08, ease:"power3.out" })
+    .to(h2, { opacity:1, y:0, duration:.9, ease:"power3.out" }, "-=0.4")
+    .to(alt, { opacity:1, y:0, duration:.7, ease:"power3.out" }, "-=0.5");
+  });
+}
+revealHeads();
+
+// menu category items stagger
+function revealMenu(){
+  document.querySelectorAll(".menu-cat").forEach(cat=>{
+    const items = cat.querySelectorAll(".menu-item");
+    gsap.set(items, { opacity:0, y:14 });
+    ScrollTrigger.create({
+      trigger:cat, start:"top 82%",
+      onEnter:()=> gsap.to(items, { opacity:1, y:0, duration:.6, stagger:.04, ease:"power2.out" })
+    });
+  });
+}
+// observe menu changes (re-rendering on lang switch)
+const moMenu = new MutationObserver(()=>{ revealMenu(); ScrollTrigger.refresh(); });
+moMenu.observe(menuRoot, { childList:true });
+revealMenu();
+
+// manifesto reveal
+gsap.set(".manifesto-grid .lede, .manifesto-grid .body p, .manifesto-grid .sig", { opacity:0, y:20 });
+gsap.set(".pillars > div", { opacity:0, y:20 });
+ScrollTrigger.create({
+  trigger:".manifesto-grid", start:"top 75%",
+  onEnter:()=> gsap.to(".manifesto-grid .lede, .manifesto-grid .body p, .manifesto-grid .sig", { opacity:1, y:0, duration:.9, stagger:.12, ease:"power3.out" })
+});
+ScrollTrigger.create({
+  trigger:".pillars", start:"top 85%",
+  onEnter:()=> gsap.to(".pillars > div", { opacity:1, y:0, duration:.7, stagger:.1, ease:"power3.out" })
+});
+
+// atmosphere tiles
+gsap.utils.toArray(".atmosphere .tile").forEach((t,i)=>{
+  gsap.set(t, { opacity:0, y:40 });
+  gsap.to(t, {
+    opacity:1, y:0, duration:1, ease:"power3.out",
+    scrollTrigger:{ trigger:t, start:"top 88%" }, delay:i*.1
+  });
+  gsap.to(t.querySelector(".art"), {
+    yPercent:-10, ease:"none",
+    scrollTrigger:{ trigger:t, start:"top bottom", end:"bottom top", scrub:true }
+  });
+});
+
+// visit reveals
+gsap.set(".map-wrap, .info-block", { opacity:0, y:24 });
+ScrollTrigger.create({
+  trigger:".visit-grid", start:"top 78%",
+  onEnter:()=> gsap.to(".map-wrap, .info-block", { opacity:1, y:0, duration:.9, stagger:.1, ease:"power3.out" })
+});
+
+// footer
+gsap.set(".footer > *", { opacity:0, y:20 });
+ScrollTrigger.create({
+  trigger:".footer", start:"top 90%",
+  onEnter:()=> gsap.to(".footer > *", { opacity:1, y:0, duration:.8, stagger:.1, ease:"power3.out" })
+});
+
+// keep ScrollTrigger in sync with lenis
+if (lenis) lenis.on("scroll", ScrollTrigger.update);
+</script>
+</body>
+</html>
