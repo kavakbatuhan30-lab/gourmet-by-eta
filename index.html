@@ -322,7 +322,7 @@ section{position:relative}
   position:relative;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   overflow:hidden;padding:26px 0;background:linear-gradient(180deg, rgba(201,165,91,.04), transparent);
 }
-.marquee-track{display:flex;width:max-content;animation:scroll 38s linear infinite;will-change:transform}
+.marquee-track{display:flex;width:max-content;will-change:transform}
 .marquee-track > span{
   display:inline-flex;align-items:center;gap:38px;padding-right:38px;
   font-family:"Fraunces",serif;font-size:clamp(1.4rem,3vw,2.4rem);
@@ -332,7 +332,6 @@ section{position:relative}
 }
 .marquee-track .script{font-family:"Allura",cursive;text-transform:none;letter-spacing:0;color:var(--gold);font-size:1.4em}
 .marquee-track .diamond{color:var(--red);font-size:.6em;transform:translateY(-2px)}
-@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* —— menu —— */
 .menu-section{padding-top:clamp(90px,12vw,140px)}
@@ -1132,7 +1131,26 @@ function renderMarquees(){
       if (it.s) return `<span class="script">${it.t}</span>`;
       return `<span>${it.t}</span>`;
     }).join("");
-    node.innerHTML = `<span>${seq}</span><span aria-hidden="true">${seq}</span>`;
+    node.innerHTML = `<span>${seq}</span><span aria-hidden="true">${seq}</span><span aria-hidden="true">${seq}</span>`;
+    if (!node.__rafStarted){
+      node.__rafStarted = true;
+      const speed = 60 + i*8;
+      let x = 0, half = 0, last = performance.now();
+      const measure = ()=>{ half = node.scrollWidth / 3; };
+      requestAnimationFrame(()=>measure());
+      window.addEventListener("resize", measure);
+      function tick(now){
+        const dt = Math.min(0.05, (now - last)/1000); last = now;
+        x -= speed * dt;
+        if (half && -x >= half) x += half;
+        node.style.transform = `translate3d(${x}px,0,0)`;
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    } else {
+      // re-measure after lang swap
+      requestAnimationFrame(()=>{ const ev = new Event("resize"); window.dispatchEvent(ev); });
+    }
   });
 }
 
